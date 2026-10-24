@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080d18"><title>Password Analysis · CipherGuard</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='cipherguard.css') }}"><script src="{{ url_for('static',filename='result.js') }}" defer></script><link rel="stylesheet" href="{{ url_for('static',filename='guide-bot.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='experience.css') }}"><script src="{{ url_for('static',filename='theme.js') }}" defer></script><link rel="stylesheet" href="{{ url_for('static', filename='secureauth-theme.css') }}?v=2"><link rel="stylesheet" href="{{ url_for('static',filename='cipherguard-3d-theme.css') }}?v=1"></head>
+<body><div class="ambient a"></div><div class="ambient b"></div><header class="topbar"><a class="brand" href="/">⌑ <span>Cipher<span class="accent">Guard</span></span></a><nav class="cg-main-nav" aria-label="Main navigation">
+<a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}aria-current="page"{% endif %}>Home</a>
+<a href="{{ url_for('home') }}">Analyzer</a>
+<a href="{{ url_for('password_generator') }}" {% if request.endpoint == 'password_generator' %}aria-current="page"{% endif %}>Generator</a>
+<a href="{{ url_for('breach_checker') }}" {% if request.endpoint == 'breach_checker' %}aria-current="page"{% endif %}>Breach Check</a>
+<a href="{{ url_for('dashboard') }}" {% if request.endpoint == 'dashboard' %}aria-current="page"{% endif %}>Dashboard</a>
+</nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">☼ <span>Light mode</span></button><span class="top-status">● ANALYSIS COMPLETE</span></header>
+<main class="shell"><section class="cg-author-banner" aria-label="Project and author">
+  <span class="cg-author-dot" aria-hidden="true"></span>
+  <div class="cg-author-copy">
+    <div class="cg-author-title">CIPGERGUARD</div>
+    <div class="cg-author-byline">BY DEEPENDER KUMAR</div>
+    <div class="cg-author-degree">Btech (Cyber Security) 7th Sem</div>
+  </div>
+</section>
+<section class="hero"><div class="eyebrow">PASSWORD SECURITY REPORT / 02</div><h1>Analysis <span class="gradient">complete.</span></h1><p>Welcome, {{ name|e }}. Here are the details you submitted and your password security report.</p></section>
+<section class="card"><div class="heading"><div><small>SUBMITTED DETAILS</small><h2>Your information</h2></div><span class="icon">♢</span></div>
+<div class="details-panel">
+  <div class="detail-row"><span class="detail-label">FULL NAME</span><strong>{{ name|e }}</strong></div>
+  <div class="detail-row"><span class="detail-label">EMAIL ADDRESS</span><strong>{{ email|e }}</strong></div>
+  <div class="detail-row password-detail"><label class="detail-label" for="result-password">PASSWORD YOU ENTERED</label><div class="result-pass"><input id="result-password" type="password" value="{{ password }}" readonly autocomplete="off" aria-label="Password you entered"><button class="eye-button" id="toggle-result-password" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+</div>
+<p class="display-warning">The password is hidden by default. Use the eye button to reveal it.</p>
+<div class="report-divider"></div>
+<div class="heading"><div><small>SECURITY REPORT</small><h2>Password strength results</h2></div><span class="icon">⌁</span></div>
+<div class="score-row"><div><small>STRENGTH ESTIMATE</small><h2>{{ result.label }}</h2><p>Estimated resistance to guessing</p></div><div class="orb s{{result.score}}">{{result.score}}<small>/ 4</small></div></div>
+<div class="meter"><span class="m{{result.score}}"></span></div><div class="grid">
+<div class="mini"><small>ESTIMATED GUESSABILITY</small><strong>10^{{ result.guesses_log10 }} guesses</strong><p>Model estimate; actual attack conditions vary.</p></div>
+<div class="mini"><small>SECURITY CHECKS</small><strong>{{result.passed_count}} / {{result.checks|length}} passed</strong><p>Helpful signals, not a guarantee.</p></div></div>
+<div class="section"><h3>✓ Security checklist</h3><ul class="checks">{% for c in result.checks %}<li class="{{'yes' if c.passed else 'no'}}"><span>{{'✓' if c.passed else '!'}}</span>{{c.label}}</li>{% endfor %}</ul></div>
+<div class="section"><h3>↗ Recommendations</h3><ul class="tips">{% if result.feedback %}{% for tip in result.feedback %}<li>{{tip}}</li>{% endfor %}{% else %}<li>Use a unique password for every account.</li><li>Consider a password manager and enable multi-factor authentication.</li>{% endif %}</ul></div>
+<p class="disclaimer">{{result.disclaimer}}</p>
+<div class="report-divider"></div>
+<div class="heading"><div><small>TOOLBOX / 03</small><h2>Explore security tools</h2></div><span class="icon">⌘</span></div>
+<p class="tool-intro">Choose a tool to open its dedicated workspace. Your password generator now has its own page, just like the dashboard.</p>
+<div class="feature-grid">
+  <a class="feature-card tilt-card" href="{{ url_for('password_generator') }}"><span class="feature-icon">✳</span><span class="feature-tag">LOCAL GENERATION</span><h3>Password Generator</h3><p>Create strong random passwords in your browser, customize options, and copy or download the result.</p><span class="feature-action">Open generator <b>↗</b></span></a>
+  <a class="feature-card tilt-card" href="{{ url_for('breach_checker') }}"><span class="feature-icon">⌕</span><span class="feature-tag">BREACH LOOKUP</span><h3>Password Breach Checker</h3><p>Check a fictional sample against known breached-password data using a range-query privacy model.</p><span class="feature-action">Check sample <b>↗</b></span></a>
+  <a class="feature-card tilt-card" href="{{ url_for('dashboard') }}"><span class="feature-icon">▥</span><span class="feature-tag">SECURITY OVERVIEW</span><h3>Security Dashboard</h3><p>Explore an interactive security overview, follow the checklist, and download a report.</p><span class="feature-action">Open dashboard <b>↗</b></span></a>
+</div>
+<a class="submit link" href="{{url_for('home')}}">← Analyze another sample</a></section>
+<div class="privacy"><b>Privacy reminder</b><p>This is a demo, not real authentication. To display the password on this page, the server includes it in the HTML response. Do not use a real account password. The app does not intentionally save submitted details.</p></div>
+<footer>CIPHERGUARD / LEARN. CHECK. PROTECT. <span>Educational demo · Not a password manager</span></footer></main>{% include "_help_agent.html" %}<script src="{{ url_for('static',filename='guide-bot.js') }}" defer></script><script src="{{ url_for('static',filename='tilt.js') }}" defer></script><script src="{{ url_for('static',filename='cursor-effects.js') }}" defer></script></body></html>

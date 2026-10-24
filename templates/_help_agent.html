@@ -1,0 +1,39 @@
+<div id="cg-guide" data-guide-page="{{ request.endpoint or request.path }}">
+  <button class="cg-guide-launcher" id="cg-guide-open" type="button" aria-label="Open CipherGuard step-by-step guide" aria-expanded="false" aria-controls="cg-guide-panel">
+    <span class="cg-robot" aria-hidden="true"><span class="cg-robot-antenna"></span><span class="cg-robot-head"><i></i><i></i><b></b></span><span class="cg-robot-body"></span><span class="cg-orbit"></span><span class="cg-orbit cg-orbit-two"></span></span>
+    <span class="cg-pulse" aria-hidden="true"></span>
+    <span class="cg-launcher-label">GUIDE</span>
+  </button>
+  <section class="cg-guide-panel" id="cg-guide-panel" aria-label="CipherGuard Guide" hidden>
+    <header class="cg-guide-header">
+      <div class="cg-avatar"><span></span><i class="cg-avatar-eye"></i></div>
+      <div class="cg-guide-heading"><strong>CipherGuard Guide</strong><small><i></i> Ready to guide · step-by-step helper</small></div>
+      <button class="cg-minimize" id="cg-guide-close" type="button" aria-label="Minimize guide">−</button>
+    </header>
+    <div class="cg-guide-content" id="cg-guide-content" aria-live="polite">
+      <div class="cg-message cg-message-bot"><b>CIPHERGUARD ASSISTANT</b><p>Hi! I’m GuardBot 🤖. I can explain what buttons do, walk you through each feature one step at a time, and point you to the right page. Choose a topic or ask “What does this button do?”</p></div>
+      <div class="cg-quick-actions" id="cg-quick-actions">
+        <button type="button" data-cg-topic="analyze"><span>⌁</span>Analyze password</button>
+        <button type="button" data-cg-topic="generate"><span>✳</span>Password generator</button>
+        <button type="button" data-cg-topic="breach"><span>⌕</span>Breach checker</button>
+        <button type="button" data-cg-topic="dashboard"><span>▥</span>Dashboard &amp; report</button>
+        <button type="button" data-cg-topic="privacy"><span>◇</span>Privacy &amp; safety</button>
+      </div>
+      <div class="cg-tour-card" id="cg-tour-card" hidden></div>
+    </div>
+    <form class="cg-guide-composer" id="cg-guide-form">
+      <label class="cg-sr-only" for="cg-guide-input">Ask CipherGuard Guide</label>
+      <input id="cg-guide-input" name="message" type="text" placeholder="Ask how a feature works…" maxlength="300" autocomplete="off">
+      <button type="submit" aria-label="Send message">➤</button>
+    </form>
+    <footer class="cg-guide-footer">Interactive guide · No real passwords or OTPs</footer>
+  </section>
+
+<!-- A floating robot hand points to the current guided-tour target. -->
+<div id="cg-guide-pointer" class="cg-guide-pointer" hidden aria-hidden="true">
+  <span class="cg-pointer-hand">👈</span><span class="cg-pointer-robot">🤖</span><span class="cg-pointer-label">TRY THIS</span>
+</div>
+<!-- Soft 3D cursor follower; native cursor remains available for accessibility. -->
+<div id="cg-cursor-orb" aria-hidden="true"><span></span></div>
+<div id="cg-page-transition" aria-hidden="true"><div class="cg-transition-core"><i></i><b></b><span></span></div><p>CIPHERGUARD</p><small>SECURELY NAVIGATING</small></div>
+</div>

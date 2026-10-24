@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080d18"><title>Welcome back · CipherGuard</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"><script src="{{ url_for('static',filename='login.js') }}" defer></script><link rel="stylesheet" href="{{ url_for('static',filename='guide-bot.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='experience.css') }}"><script src="{{ url_for('static',filename='theme.js') }}" defer></script><link rel="stylesheet" href="{{ url_for('static', filename='secureauth-theme.css') }}?v=2"><link rel="stylesheet" href="{{ url_for('static',filename='cipherguard-3d-theme.css') }}?v=1"></head>
+<body><div class="ambient a"></div><div class="ambient b"></div><header class="topbar"><a class="brand" href="/">⌑ <span>Cipher<span class="accent">Guard</span></span></a>
+<nav class="cg-main-nav" aria-label="Main navigation">
+<a href="{{ url_for('home') }}" {% if request.endpoint == 'home' %}aria-current="page"{% endif %}>Home</a>
+<a href="{{ url_for('home') }}">Analyzer</a>
+<a href="{{ url_for('password_generator') }}" {% if request.endpoint == 'password_generator' %}aria-current="page"{% endif %}>Generator</a>
+<a href="{{ url_for('breach_checker') }}" {% if request.endpoint == 'breach_checker' %}aria-current="page"{% endif %}>Breach Check</a>
+<a href="{{ url_for('dashboard') }}" {% if request.endpoint == 'dashboard' %}aria-current="page"{% endif %}>Dashboard</a>
+</nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">☼ <span>Light mode</span></button><span class="top-status">● PRIVACY-FIRST DEMO</span></header>
+<main class="shell"><section class="cg-author-banner" aria-label="Project and author">
+  <span class="cg-author-dot" aria-hidden="true"></span>
+  <div class="cg-author-copy">
+    <div class="cg-author-title">CIPGERGUARD</div>
+    <div class="cg-author-byline">BY DEEPENDER KUMAR</div>
+    <div class="cg-author-degree">Btech (Cyber Security) 7th Sem</div>
+  </div>
+</section>
+<section class="hero"><h1>Welcome back</h1><p>Analyze a sample password to review its strength and explore your security tools.</p></section>
+<section class="card"><div class="heading"><div><small>CIPHERGUARD </small><h2>Review your password security</h2></div><span class="icon">♢</span></div>
+<div class="warning"><b>Demo only:</b> This is not real account authentication. Do not enter a real account password. Use a made-up sample password.</div>
+{% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+<form action="{{ url_for('analyze_form') }}" method="post" autocomplete="off">
+<label for="name">Full name</label><input class="field" id="name" name="name" maxlength="80" placeholder="Enter your name" autocomplete="name" required>
+<label for="email">Email address</label><input class="field" id="email" name="email" type="email" maxlength="254" placeholder="you@example.com" autocomplete="email" required>
+<label for="password">Sample password to analyze</label><div class="pass"><input id="password" name="password" type="password" maxlength="256" placeholder="Enter a test password" autocomplete="new-password" required><button class="eye-button" id="toggle" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+<div class="meta"><span>Use a made-up password, not a real one.</span><span id="count">0 / 256</span></div><button class="submit" type="submit">Analyze securely <span>↗</span></button></form>
+<p class="footnote">CipherGuard · Educational password-security demo · Never enter a real password.</p></section><footer>CIPHERGUARD / LEARN. CHECK. PROTECT. <span>Educational demo · Not a real login system</span></footer></main>{% include "_help_agent.html" %}<script src="{{ url_for('static',filename='guide-bot.js') }}" defer></script><script src="{{ url_for('static',filename='tilt.js') }}" defer></script><script src="{{ url_for('static',filename='cursor-effects.js') }}" defer></script></body></html>
