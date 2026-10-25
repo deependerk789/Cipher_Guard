@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ CipherGuard Security Toolkit
+# 🛡️ CipherGuard 
 
 **A modern, web-based toolkit for password security and awareness.**
 
