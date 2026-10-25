@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🛡️ CipherGuard
+# 🛡️ CipherGuard Security Toolkit
 
 **A modern, web-based toolkit for password security and awareness.**
 
-Analyze password strength, generate stronger passwords, check passwords against known breach data, and review practical security recommendations — all through a clean, responsive interface.
+Analyze password strength, generate stronger passwords, check passwords against known breach data, and review practical security recommendations through a clean, responsive interface.
 
 <p>
   <a href="https://devilkillerwing789.pythonanywhere.com/breach-checker"><strong>🚀 Open Live App</strong></a>
@@ -15,7 +15,6 @@ Analyze password strength, generate stronger passwords, check passwords against 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-Web%20App-000000?logo=flask&logoColor=white)
 ![Security](https://img.shields.io/badge/Focus-Password%20Security-00BFA6)
-![License](https://img.shields.io/badge/License-Add%20a%20license-lightgrey)
 
 </div>
 
@@ -23,26 +22,19 @@ Analyze password strength, generate stronger passwords, check passwords against 
 
 ## 📸 Screenshots
 
-> These images are expected to be committed in the repository's `screenshots/` folder. Update the filenames below if yours differ.
+### 🔍 Password Analyzer
+![CipherGuard Password Analyzer](screenshots/Password%20Analyzer.jpeg)
 
-<table>
-  <tr>
-    <td align="center"><strong>Password Analyzer</strong></td>
-    <td align="center"><strong>Password Generator</strong></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/analyzer.jpeg" alt="CipherGuard password analyzer" width="100%"></td>
-    <td><img src="screenshots/generator.jpeg" alt="CipherGuard password generator" width="100%"></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Breach Checker</strong></td>
-    <td align="center"><strong>Security Dashboard</strong></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/breach-checker.jpeg" alt="CipherGuard breach checker" width="100%"></td>
-    <td><img src="screenshots/dashboard.jpeg" alt="CipherGuard security dashboard" width="100%"></td>
-  </tr>
-</table>
+### 🔐 Password Generator
+![CipherGuard Password Generator](screenshots/Password%20Generator.jpeg)
+
+### 🕵️ Breach Checker
+![CipherGuard Breach Checker](screenshots/Breach%20Checker.jpeg)
+
+### 📊 Security Dashboard
+![CipherGuard Security Dashboard](screenshots/Security%20Dashboard.jpeg)
+
+---
 
 ## ✨ Features
 
@@ -54,20 +46,20 @@ Analyze password strength, generate stronger passwords, check passwords against 
 ### 🔐 Password Generator
 - Generates passwords with a configurable length (8–64 characters).
 - Supports uppercase letters, lowercase letters, numbers, and symbols.
-- Includes options to exclude ambiguous characters.
-- Provides convenient show/hide, copy, and download actions where supported by the app.
+- Includes an option to exclude ambiguous characters.
+- Provides show/hide, copy, and download actions where supported by the app.
 
 ### 🕵️ Breach Checker
 - Checks whether a password appears in known breach data, if the configured breach-check service is available.
-- For privacy, password-breach lookups should use the Have I Been Pwned Pwned Passwords range method (send only a SHA-1 hash prefix, never the password itself).
-- A match means the password has appeared in breach data; it does not reveal which account or service was affected.
+- For privacy, breach lookups should use the Have I Been Pwned Pwned Passwords range method, sending only a SHA-1 hash prefix rather than the password itself.
+- A match means the password has appeared in breach data; it does not identify which account or service was affected.
 
 ### 📊 Security Dashboard
-- Presents a security overview and actionable recommendations.
+- Presents a security overview and practical recommendations.
 - Helps users identify password habits that may need attention.
 
-### 🎨 Interface
-- Dark, modern visual design with blue/cyan accents.
+### 🎨 User Interface
+- Modern dark theme with blue and cyan accents.
 - Responsive layout for different screen sizes.
 - Light-mode toggle, if enabled in the current build.
 
@@ -83,7 +75,7 @@ Analyze password strength, generate stronger passwords, check passwords against 
 
 **[Launch CipherGuard](https://devilkillerwing789.pythonanywhere.com/breach-checker)**
 
-If that link opens directly on the Breach Checker page, use the app's navigation to explore other sections. If you intended the root homepage to be the landing page, update the URL above to the root URL after confirming that route works.
+The link opens the Breach Checker route. Use the app navigation to explore other sections if available.
 
 ## 💻 Run Locally
 
@@ -124,17 +116,19 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. Start the app
+### 4. Start the application
 
 ```bash
 python app.py
 ```
 
-Open the local address printed in your terminal (the app commonly uses `http://127.0.0.1:5000`).
+Open the local address printed in the terminal. The app commonly uses `http://127.0.0.1:5000`.
 
 ## ☁️ Deployment
 
-The project includes deployment-related files such as `Procfile` and `render.yaml`. Deployment steps vary by host. For PythonAnywhere, configure the web app's WSGI file to import the Flask instance as `application`, and select the virtual environment where the project's requirements are installed.
+The repository includes deployment-related files such as `Procfile` and `render.yaml`. Deployment instructions vary by hosting provider.
+
+For PythonAnywhere, configure the web app's WSGI file to import the Flask instance as `application` and select the virtual environment where the project's dependencies are installed.
 
 Example WSGI configuration:
 
@@ -148,7 +142,7 @@ if project_path not in sys.path:
 from app import app as application
 ```
 
-Replace `your-username` with your PythonAnywhere username and set the web app's virtualenv path in the PythonAnywhere Web tab.
+Replace `your-username` with your PythonAnywhere username and set the virtualenv path in the PythonAnywhere Web tab.
 
 ## 🧪 Run Tests
 
@@ -158,10 +152,10 @@ pytest
 
 ## 🔒 Security Notes
 
-- Never reuse passwords across important accounts.
+- Avoid reusing passwords across important accounts.
 - Use a password manager and enable multi-factor authentication where possible.
-- Do not log or store raw passwords.
-- For breach checking, use a privacy-preserving range-query approach and follow the breach-data provider's usage guidance.
+- Never log or store raw passwords unnecessarily.
+- Use a privacy-preserving breach-check method and follow the data provider's guidance.
 - This project is an educational security tool and is not a substitute for a full security audit.
 
 ## 🗂️ Project Structure
@@ -174,6 +168,10 @@ Cipher_Guard/
 ├── static/
 ├── tests/
 ├── screenshots/
+│   ├── Password Analyzer.jpeg
+│   ├── Password Generator.jpeg
+│   ├── Breach Checker.jpeg
+│   └── Security Dashboard.jpeg
 ├── INSTALL.md
 ├── Procfile
 ├── render.yaml
@@ -185,11 +183,11 @@ Cipher_Guard/
 1. Fork the repository.
 2. Create a branch for your change.
 3. Make and test your changes.
-4. Open a pull request describing the improvement.
+4. Open a pull request describing your improvement.
 
 ## 📄 License
 
-No license is specified in this README yet. Add a `LICENSE` file and update the badge above before presenting the project as open source.
+No license is specified in this README. Add a `LICENSE` file and update this section if you intend to publish the project under an open-source license.
 
 ---
 
