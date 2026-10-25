@@ -1,250 +1,321 @@
-<div align="center">
+# 🛡️ CipherGuard --- Password Security Toolkit
 
-# 🔐 CipherGuard Security Toolkit
+```{=html}
+<p align="center">
+```
+`<img src="https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.13">`{=html}
+`<img src="https://img.shields.io/badge/Flask-Web%20Framework-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">`{=html}
+`<img src="https://img.shields.io/badge/Security-Password%20Hygiene-00C9A7?style=for-the-badge" alt="Password Security">`{=html}
+`<img src="https://img.shields.io/badge/Project-Educational-2563EB?style=for-the-badge" alt="Educational Project">`{=html}
+```{=html}
+</p>
+```
+```{=html}
+<p align="center">
+```
+`<strong>`{=html}A modern password-security toolkit built with Python
+and Flask.`</strong>`{=html}`<br>`{=html} Analyze sample passwords,
+generate stronger passwords, check samples against a breached-password
+corpus, and explore password-hygiene recommendations.
+```{=html}
+</p>
+```
+```{=html}
+<p align="center">
+```
+`<a href="https://devilkillerwing789.pythonanywhere.com/breach-checker">`{=html}🌐
+Live Demo`</a>`{=html} ·
+`<a href="https://github.com/deependerk789/Cipher_Guard">`{=html}📂
+GitHub Repository`</a>`{=html} · `<a href="#-installation">`{=html}⚙️
+Installation`</a>`{=html} · `<a href="#-screenshots">`{=html}🖼️
+Screenshots`</a>`{=html}
+```{=html}
+</p>
+```
+> **Important:** CipherGuard is an educational demonstration, not a
+> production security service. Use made-up sample passwords only. Never
+> enter real passwords or account credentials.
 
-### CipherGuard — Password Strength Analyzer
+------------------------------------------------------------------------
 
-A modern, dark-themed Flask web app that evaluates a **sample password** and explains its strength with a clear, easy-to-read security report.
+## 📌 Overview
 
-**Developed by Deepender Kumar**  
-*B.Tech (Cyber-Security) · 7th Semester*
+CipherGuard brings several password-security learning tools together in
+one web application. Its interface is designed to make password
+strength, safer password generation, breached-password checks, and
+general password-hygiene practices easier to explore.
 
-[🌐 **Live Demo**](https://Deepender789.pythonanywhere.com/) · [💻 GitHub Repository](https://github.com/deependerk789/CipherGuard)
+The project uses **Python and Flask** for its web application, with
+frontend templates and static assets for the user interface.
 
-[![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![Security Analysis](https://img.shields.io/badge/Analysis-zxcvbn-55E6D0?labelColor=101A2B)](https://github.com/dropbox/zxcvbn)
-[![License](https://img.shields.io/badge/Project-Educational%20Demo-6C8EFF)](#-security--privacy-first)
+## ✨ Features
 
-</div>
+### 🔍 Password Analyzer
 
----
+-   Analyze a made-up sample password and explore its estimated
+    strength.
+-   Use the interface's visibility control to show or hide the sample.
+-   Learn about password-strength concepts without connecting a real
+    account.
 
-## ✨ Overview
+### 🔐 Password Generator
 
-CipherGuard is an educational password-security project built with **Python, Flask, HTML, CSS, and JavaScript**. It uses the open-source **zxcvbn** estimator to assess how predictable a sample password may be and turns the result into a visual report.
+-   Generate passwords in the browser.
+-   Configure password length from **8 to 64 characters**.
+-   Choose uppercase letters, lowercase letters, numbers, and symbols.
+-   Optionally exclude ambiguous characters.
+-   Show or hide the generated value, copy it, or download it as a text
+    file.
 
-The project has a two-page flow: enter demo details on the first page, then review the submitted details and password-strength report on the second page. A password visibility toggle lets users show or hide the password in the interface.
+### 🚨 Password Breach Checker
 
-> ⚠️ **Demo only:** Do not enter a real password or credentials you use anywhere else. This is not an authentication system or a password manager.
+-   Check a made-up sample against the Have I Been Pwned Pwned Passwords
+    corpus.
+-   Uses a SHA-1 hash-prefix lookup approach: the service lookup uses a
+    five-character prefix rather than the full password.
+-   Results depend on the external service and network availability.
 
-## 🖥️ Screenshots
+**Privacy note:** The sample is sent to the Flask application for
+hashing. The full password should not be sent to the breach service, but
+the application server may receive the sample. Use only made-up
+passwords.
 
-### 1. Welcome & sample-password form
+### 📊 Security Dashboard
 
-The first page introduces CipherGuard and collects demo details before analysis.
+-   View an illustrative security-posture score.
+-   Explore password-length, unique-password, multi-factor
+    authentication, and password-manager recommendations.
+-   Review password-hygiene guidance.
 
-![CipherGuard home page](screenshots/home.png)
+Dashboard scores and percentages are illustrative. They do not represent
+a scan of real accounts or devices.
 
-### 2. Password analysis report
+### 🎨 User Interface
 
-The results page displays the strength estimate, guessability estimate, checklist, and practical recommendations. The sample password is masked by default and can be toggled with the eye icon.
+-   Dark navy styling with cyan and blue gradients.
+-   Navigation between the application's security tools.
+-   Light-mode option.
+-   Interactive forms and clear educational privacy notices.
 
-![CipherGuard analysis results page](screenshots/results.png)
+## 🖼️ Screenshots
 
-*Screenshots are illustrative previews of the interface. Use made-up sample data when running the app.*
+Add the screenshots to the repository's `screenshots/` directory using
+the filenames shown below. If your images have different names or
+extensions, update the paths accordingly.
 
-## 🚀 Features
+### Password Analyzer
 
-- **Password strength estimate** — score from 0 to 4 with a readable strength label.
-- **Guessability estimate** — shows the model's estimated number of guesses on a logarithmic scale.
-- **Security checklist** — reviews length, character variety, and resistance to common patterns.
-- **Actionable feedback** — provides suggestions based on the zxcvbn analysis.
-- **Two-page interface** — separate input and results screens.
-- **Show/hide password control** — password fields are masked by default in the interface.
-- **Responsive dark UI** — modern styling designed for desktop and smaller screens.
-- **Basic defensive controls** — input validation, request-size limit, security-related response headers, and a health endpoint.
-- **Automated tests** — basic route and validation tests are included.
+![CipherGuard Password Analyzer](screenshots/analyzer.jpeg)
 
-## 🧰 Tech stack
+### Password Generator
 
-| Technology | Purpose |
-|---|---|
-| Python | Application logic |
-| Flask | Web framework and routes |
-| zxcvbn | Password guessability and strength estimation |
-| HTML & CSS | Page structure and dark responsive interface |
-| JavaScript | Password visibility and small UI interactions |
-| pytest | Basic automated tests |
-| Gunicorn | Production WSGI server for deployment |
+![CipherGuard Password Generator](screenshots/generator.jpeg)
 
-## 📁 Project structure
+### Password Breach Checker
 
-```text
-CipherGuard_Two_Page_Updated/
-├── app.py
-├── requirements.txt
-├── Procfile
-├── render.yaml
-├── .gitignore
-├── README.md
-├── templates/
-│   ├── index.html
-│   └── results.html
-├── static/
-│   ├── style.css
-│   ├── login.js
-│   └── result.js
-├── screenshots/
-│   ├── home.png
-│   └── results.png
-└── tests/
-    └── test_app.py
+![CipherGuard Password Breach Checker](screenshots/breach-checker.jpeg)
+
+### Security Dashboard
+
+![CipherGuard Security Dashboard](screenshots/dashboard.jpeg)
+
+## 🧰 Technology Stack
+
+  -----------------------------------------------------------------------
+  Technology                          Purpose
+  ----------------------------------- -----------------------------------
+  Python                              Backend programming
+
+  Flask                               Web application framework
+
+  HTML5 / CSS3 / JavaScript           Frontend structure, styling, and
+                                      interactions
+
+  Jinja2                              Server-side HTML templating
+
+  zxcvbn                              Password-strength estimation
+                                      library
+
+  Have I Been Pwned Pwned Passwords   Breached-password lookup service
+
+  Gunicorn                            WSGI server option
+
+  pytest                              Testing framework
+
+  PythonAnywhere                      Hosting and deployment
+  -----------------------------------------------------------------------
+
+## 🏗️ Project Structure
+
+``` text
+Cipher_Guard/
+├── app.py                 # Flask application and routes
+├── requirements.txt       # Python dependencies
+├── Procfile               # Process configuration
+├── render.yaml            # Render deployment configuration
+├── INSTALL.md             # Installation notes
+├── README.md              # Project documentation
+├── templates/             # HTML/Jinja2 templates
+├── static/                # CSS, JavaScript, and other static assets
+├── screenshots/            # Project screenshots
+└── tests/                  # Automated tests
 ```
 
-## ⚙️ Run locally on Windows
+## ⚙️ Installation
 
 ### Prerequisites
 
-- Python 3.12 or newer (use a currently supported stable release)
-- Git
-- VS Code or another code editor
+-   Python 3.10+ (use a version compatible with the project's
+    dependencies)
+-   Git
+-   A modern web browser
+-   Internet access for breach-check functionality
 
 ### 1. Clone the repository
 
-```powershell
-git clone https://github.com/deependerk789/CipherGuard.git
-cd CipherGuard
+``` bash
+git clone https://github.com/deependerk789/Cipher_Guard.git
+cd Cipher_Guard
 ```
-
-If you already have the project folder, open that folder in VS Code and use its terminal instead.
 
 ### 2. Create a virtual environment
 
-```powershell
-python -m venv venv
+**Windows**
+
+``` bash
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-Activate it in PowerShell:
+**Linux / macOS**
 
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-If PowerShell blocks script activation, you can use this workaround for the **current terminal session only**:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\venv\Scripts\Activate.ps1
-```
-
-Alternatively, skip activation and run the virtual environment's Python directly:
-
-```powershell
-.\venv\Scripts\python.exe -m pip install -r requirements.txt
-.\venv\Scripts\python.exe app.py
+``` bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 3. Install dependencies
 
-```powershell
+``` bash
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-### 4. Start the app
+### 4. Run the application
 
-```powershell
+``` bash
 python app.py
 ```
 
-Open **http://127.0.0.1:5000** in your browser.
+Open `http://127.0.0.1:5000` in your browser, or use the local URL and
+port printed by the application.
 
-### 5. Run the tests
+## 🚀 Deployment on PythonAnywhere
 
-```powershell
-python -m pytest -q
+1.  Create a PythonAnywhere account and open a Bash console.
+2.  Clone the repository or update your existing checkout.
+3.  Create and activate a virtual environment using a Python version
+    supported by your account.
+4.  Install dependencies with
+    `python -m pip install -r requirements.txt`.
+5.  Create a web app using **Manual configuration** for the matching
+    Python version.
+6.  Set the source code / working directory to your project directory.
+7.  Set the virtual environment path in the Web tab.
+8.  Configure the WSGI file to import the Flask application.
+9.  Reload the web app and inspect the error log if anything fails.
+
+Example WSGI configuration (replace `YOUR_USERNAME` with your
+PythonAnywhere username):
+
+``` python
+import sys
+
+project_path = "/home/YOUR_USERNAME/Cipher_Guard"
+if project_path not in sys.path:
+    sys.path.insert(0, project_path)
+
+from app import app as application
 ```
 
-## 🔌 API endpoints
+### Live Demo
 
-### `POST /api/analyze`
+**[Open CipherGuard on
+PythonAnywhere](https://devilkillerwing789.pythonanywhere.com/breach-checker)**
 
-Accepts a JSON body containing a sample password and returns a strength estimate, checks, feedback, and a disclaimer. The API response does not include the password itself.
+The URL is included from the project's deployment configuration and
+should be tested to confirm it is currently available.
 
-Example request:
+## 🧪 Testing
 
-```json
-{
-  "password": "Example-Only-Password-938!"
-}
+The repository includes a `tests/` directory and lists `pytest` in its
+dependencies. Run:
+
+``` bash
+python -m pytest
 ```
 
-Example with `curl`:
+Review the output to see which tests are present and whether they pass.
 
-```bash
-curl -X POST http://127.0.0.1:5000/api/analyze \
-  -H "Content-Type: application/json" \
-  -d '{"password":"Example-Only-Password-938!"}'
+## 🔒 Security and Privacy Notes
+
+-   Never enter real passwords, account credentials, or secrets into
+    this educational demo.
+-   Password-strength scores are estimates, not guarantees of security.
+-   Verify the password generator's randomness and handling before
+    relying on it for sensitive use.
+-   The breach checker should send only the required hash prefix to the
+    external breach service; the Flask application may still receive the
+    sample password.
+-   Dashboard values are illustrative and do not prove that accounts or
+    devices have been scanned.
+-   A production deployment requires a separate security review,
+    including HTTPS, secure configuration, input validation, logging,
+    rate limiting, and sensitive-data handling.
+
+## 🛣️ Possible Future Improvements
+
+-   [ ] Expand automated tests for routes and input validation.
+-   [ ] Improve accessibility and keyboard navigation.
+-   [ ] Add clearer password-strength explanations.
+-   [ ] Improve breach-check error handling and availability messaging.
+-   [ ] Review password-generation randomness and sensitive-data
+    handling.
+-   [ ] Add dependency scanning and security checks to CI.
+-   [ ] Further improve mobile responsiveness.
+
+## 🤝 Contributing
+
+Contributions and suggestions are welcome.
+
+1.  Fork the repository.
+2.  Create a feature branch.
+3.  Make your changes and add tests where appropriate.
+4.  Open a pull request describing the changes.
+
+Do not include real passwords, credentials, API keys, or other sensitive
+data in issues, pull requests, or screenshots.
+
+## 📄 License
+
+Check the repository for a `LICENSE` file. If no license is present,
+reuse and redistribution permissions have not been explicitly granted.
+
+## 👨‍💻 Project Links
+
+-   **GitHub:**
+    [deependerk789/Cipher_Guard](https://github.com/deependerk789/Cipher_Guard)
+-   **Live demo:**
+    [devilkillerwing789.pythonanywhere.com](https://devilkillerwing789.pythonanywhere.com/breach-checker)
+
+------------------------------------------------------------------------
+
+```{=html}
+<p align="center">
 ```
-
-### `GET /health`
-
-Returns a simple health status for local checks and hosting health checks.
-
-## ☁️ Live deployment
-
-**Live demo:** https://Deepender789.pythonanywhere.com/
-
-This project is currently hosted on [PythonAnywhere](https://www.pythonanywhere.com/). The repository also contains `Procfile` and `render.yaml` from an earlier Render deployment configuration; they are not required to run the app locally or on PythonAnywhere.
-
-To deploy your own copy, follow PythonAnywhere's current Flask web-app deployment instructions, configure the WSGI file to import `app` from this repository, install the packages from `requirements.txt` into the configured virtual environment, then reload the web app. Hosting plans and limits can change, so check the provider's current documentation.
-
-Do not expose Flask's development server or enable debug mode in production. Test the public demo using made-up sample passwords only.
-
-## 🛡️ Security & privacy first
-
-This project is a learning demo—not a guarantee of security, a breach checker, a password manager, or a real login system.
-
-- **Use sample passwords only.** Never enter a password used for email, banking, social media, work, or any real account.
-- The form sends the sample password to the Flask server for analysis. The results page also includes the submitted value in its HTML so the demo can show it with masking. A masked field is not a security boundary.
-- The application does not intentionally save submitted details to a database, but hosting infrastructure may process request contents. Review host logging and retention policies before publishing.
-- The strength score is an estimate. It cannot protect against phishing, malware, password reuse, account recovery attacks, or a compromised service.
-- For a real product, prefer client-side analysis if the password must never leave the browser, add appropriate rate limiting and security testing, and review the full deployment architecture.
-
-## 🗺️ Possible future improvements
-
-- Perform strength analysis entirely in the browser.
-- Add accessibility and mobile-device testing.
-- Add stronger automated tests and continuous integration.
-- Improve deployment hardening and rate limiting.
-- Add a privacy-preserving breached-password lookup only if designed and reviewed carefully.
-
-## 👨‍💻 Developer
-
-**Deepender Kumar**  
-B.Tech (Cyber-Security), 7th Semester
-
----
-
-<div align="center">
-
-Built as an educational cybersecurity project. **Learn. Check. Protect.**
-
-</div>
-
-
-## CipherGuard feature update
-This version includes a browser-based secure password generator, a password breach checker using the Have I Been Pwned range API, and a downloadable security checklist report. See `INSTALL.md` for setup notes.
-
-
-## Interactive CipherGuard Guide
-
-Click the glowing **GUIDE** button in the bottom-right corner to open the built-in helper. It offers guided tours for password analysis, password generation, breach checking, the security dashboard, and privacy. Tours include progress, Back/Next/Finish controls, and links to relevant pages. You can also type a basic question. This is a rule-based guide, not an AI model, and it never fills or submits password forms.
-
-
-## Visual experience update
-
-- Dedicated **Password Generator** page at `/password-generator`; the generator is opened with a button from the results page instead of appearing inline.
-- **GuardBot** floating robot assistant with guided tours for the analyzer, generator, breach checker, dashboard, and privacy basics.
-- Persistent **dark/light mode** switch (stored locally in the browser).
-- 3D tilt effects on tool cards and an enhanced dashboard visual. Dashboard percentage graphics are illustrative, not live security measurements.
-
-Run locally with `python app.py`, then open `http://127.0.0.1:5000/`. Test each route before deploying.
-
-
-## Interactive experience
-- **3D cursor follower:** a glowing depth-style orb follows the mouse on desktop while retaining the normal cursor.
-- **Animated page transitions:** internal links and valid form submissions show a short 3D navigation animation.
-- **Pointing robot guide:** guided tour steps highlight the related button or input and place a pointing-hand marker beside it.
-- **Accessibility:** touch devices avoid the custom cursor, and reduced-motion preferences disable most motion.
+`<strong>`{=html}🔐 Better password habits start with better
+awareness.`</strong>`{=html}`<br>`{=html} Built for learning,
+experimentation, and safer password practices.
+```{=html}
+</p>
+```
